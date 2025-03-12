@@ -210,6 +210,8 @@ public class Parameters {
     public static final int MAXIMUM_ATTEMPTS_MATCHING = 10;
     public static final double RELAXATION_FACTOR = 1.5;
 
+    public static double ageDiscountRate = 1.0;
+
     public static final int AGE_DIFFERENCE_INITIAL_BOUND = 999;
     public static final double POTENTIAL_EARNINGS_DIFFERENCE_INITIAL_BOUND = 999.;
 
@@ -270,7 +272,7 @@ public class Parameters {
     public static final boolean systemOut = true;
 
     //Bootstrap all the regression coefficients if true, or only the female labour participation regressions when false
-    public static final boolean bootstrapAll = false;
+    public static boolean bootstrapAll = false;
 
     //Scheduling
     public static final int MODEL_ORDERING = 0;
@@ -787,7 +789,8 @@ public class Parameters {
                                       boolean fixTimeTrend, boolean defaultToTimeSeriesAverages, boolean taxDBMatches,
                                       Integer timeTrendStops, int startYearModel, int endYearModel, double interestRateInnov1,
                                       double disposableIncomeFromLabourInnov1, boolean flagSuppressChildcareCosts1,
-                                      boolean flagSuppressSocialCareCosts1, boolean flagNoOutturnOfSocialCare1) {
+                                      boolean flagSuppressSocialCareCosts1, boolean flagNoOutturnOfSocialCare1,
+                                      boolean flagBootstrapAll, double ageDiscountRate1) {
 
         // display a dialog box to let the user know what is happening
         System.out.println("Loading model parameters");
@@ -796,6 +799,8 @@ public class Parameters {
         maxAge = maxAgeModel;
         startYear = startYearModel;
         endYear = endYearModel;
+
+        ageDiscountRate = ageDiscountRate1;
 
         EUROMODpolicySchedule = calculateEUROMODpolicySchedule(country);
         taxDonorInputFileName = "population_" + country;
@@ -826,6 +831,7 @@ public class Parameters {
         donorPoolAveraging = donorPoolAveraging1;
         realInterestRateInnov = interestRateInnov1;
         disposableIncomeFromLabourInnov = disposableIncomeFromLabourInnov1;
+        bootstrapAll = flagBootstrapAll;
 
 //		unemploymentRatesByRegion = new LinkedHashMap<>();
 //		unemploymentRates = ExcelAssistant.loadCoefficientMap("input/scenario_unemploymentRates.xlsx", countryString, 1, 46);

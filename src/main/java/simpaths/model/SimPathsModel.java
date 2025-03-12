@@ -102,6 +102,8 @@ public class SimPathsModel extends AbstractSimulationManager implements EventLis
     @GUIparameter(description = "Fix year used in the regressions to")
     private Integer timeTrendStopsIn = 2021;
 
+    private double ageDiscountRate = 1.0;
+
     private Integer timeTrendStopsInMonetaryProcesses = 2021; // For monetary processes, time trend always continues to 2017 (last observed year in the estimation sample) and then values are grown at the growth rate read from Excel
 
 //	@GUIparameter(description="Age at which people in initial population who are not employed are forced to retire")
@@ -296,6 +298,8 @@ public class SimPathsModel extends AbstractSimulationManager implements EventLis
     @GUIparameter(description = "whether to include geographic region in state space for IO behavioural solutions")
     private boolean responsesToRegion = false;
 
+    private boolean flagBootstrapAll = false;
+
     RandomGenerator cohabitInnov;
     Random initialiseInnov1;
     Random initialiseInnov2;
@@ -350,7 +354,7 @@ public class SimPathsModel extends AbstractSimulationManager implements EventLis
         Parameters.loadParameters(country, maxAge, enableIntertemporalOptimisations, projectFormalChildcare,
                 projectSocialCare, donorPoolAveraging, fixTimeTrend, flagDefaultToTimeSeriesAverages, saveImperfectTaxDBMatches,
                 timeTrendStopsIn, startYear, endYear, interestRateInnov, disposableIncomeFromLabourInnov, flagSuppressChildcareCosts,
-                flagSuppressSocialCareCosts, flagNoOutturnOfSocialCare);
+                flagSuppressSocialCareCosts, flagNoOutturnOfSocialCare, flagBootstrapAll, ageDiscountRate);
         if (enableIntertemporalOptimisations) {
 
             alignEmployment = false;

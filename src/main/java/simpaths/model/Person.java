@@ -725,6 +725,22 @@ public class Person implements EventListener, IDoubleSource, IIntSource, Weight,
     // Processes
     // ---------------------------------------------------------------------
 
+    private double ageWithDiscount() {
+        double ageHere;
+
+        int yearsSinceStart = getYear() - Parameters.startYear;
+        int ageAtStart = dag - yearsSinceStart;
+        int ageDiscountStart = Math.max(65, ageAtStart);
+        if (dag < ageDiscountStart) {
+
+            ageHere = (double)dag;
+        } else {
+
+            ageHere = ageDiscountStart + (double)(dag - ageDiscountStart) / Parameters.ageDiscountRate;
+        }
+        return ageHere;
+    }
+
     public void fertility() {
         double probitAdjustment = (model.isAlignFertility()) ? Parameters.getAlignmentValue(getYear(), AlignmentVariable.FertilityAlignment) : 0.0;
         probitAdjustment += Parameters.getTimeSeriesValue(getYear(), TimeSeriesVariable.FertilityAdjustment);
@@ -2017,6 +2033,7 @@ public class Person implements EventListener, IDoubleSource, IIntSource, Weight,
         Age81to82,
         Age83to84,
         Age85plus,
+        Age85dplus,
         AgeOver39,
         AgeUnder25,
         Blpay_Q2,
@@ -2364,31 +2381,44 @@ public class Person implements EventListener, IDoubleSource, IIntSource, Weight,
                 return (dag > 39) ? 1. : 0.;
             }
             case Age67to68 -> {
-                return (dag >= 67 && dag <= 68) ? 1. : 0.;
+                double ageHere = ageWithDiscount();
+                return (ageHere >= 67 && ageHere <= 68) ? 1. : 0.;
             }
             case Age69to70 -> {
-                return (dag >= 69 && dag <= 70) ? 1. : 0.;
+                double ageHere = ageWithDiscount();
+                return (ageHere >= 69 && ageHere <= 70) ? 1. : 0.;
             }
             case Age71to72 -> {
-                return (dag >= 71 && dag <= 72) ? 1. : 0.;
+                double ageHere = ageWithDiscount();
+                return (ageHere >= 71 && ageHere <= 72) ? 1. : 0.;
             }
             case Age73to74 -> {
-                return (dag >= 73 && dag <= 74) ? 1. : 0.;
+                double ageHere = ageWithDiscount();
+                return (ageHere >= 73 && ageHere <= 74) ? 1. : 0.;
             }
             case Age75to76 -> {
-                return (dag >= 75 && dag <= 76) ? 1. : 0.;
+                double ageHere = ageWithDiscount();
+                return (ageHere >= 75 && ageHere <= 76) ? 1. : 0.;
             }
             case Age77to78 -> {
-                return (dag >= 77 && dag <= 78) ? 1. : 0.;
+                double ageHere = ageWithDiscount();
+                return (ageHere >= 77 && ageHere <= 78) ? 1. : 0.;
             }
             case Age79to80 -> {
-                return (dag >= 79 && dag <= 80) ? 1. : 0.;
+                double ageHere = ageWithDiscount();
+                return (ageHere >= 79 && ageHere <= 80) ? 1. : 0.;
             }
             case Age81to82 -> {
-                return (dag >= 81 && dag <= 82) ? 1. : 0.;
+                double ageHere = ageWithDiscount();
+                return (ageHere >= 81 && ageHere <= 82) ? 1. : 0.;
             }
             case Age83to84 -> {
-                return (dag >= 83 && dag <= 84) ? 1. : 0.;
+                double ageHere = ageWithDiscount();
+                return (ageHere >= 83 && ageHere <= 84) ? 1. : 0.;
+            }
+            case Age85dplus -> {
+                double ageHere = ageWithDiscount();
+                return (ageHere >= 85) ? 1. : 0.;
             }
             case Age85plus -> {
                 return (dag >= 85) ? 1. : 0.;

@@ -102,6 +102,9 @@ public class TaxEvaluation {
     public double getBenefitsReceivedPerMonth() {
         return imputedTransfers.getBenefitsReceivedPerMonth() + socialCareSupportPerMonth;
     }
+    public double getSocialCareSupportPerMonth() {
+        return socialCareSupportPerMonth;
+    }
     public double getGrossIncomePerMonth() {
         return imputedTransfers.getGrossIncomePerMonth();
     }

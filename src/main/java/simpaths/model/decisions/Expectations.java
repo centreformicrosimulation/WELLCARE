@@ -170,6 +170,7 @@ public class Expectations {
 
         // add new data for within period regression specifications
         personProxyThisPeriod = new Person(true);
+        personProxyThisPeriod.setYearLocal(currentStates.getYearByAge(ageYearsThisPeriod));
         personProxyThisPeriod.setDag(ageYearsThisPeriod);
         personProxyThisPeriod.setRegionLocal(currentStates.getRegionCode());
         personProxyThisPeriod.setDgn(currentStates.getGenderCode());
