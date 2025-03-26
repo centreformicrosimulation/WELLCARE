@@ -37,7 +37,7 @@ model_args:
     enableIntertemporalOptimisations: true
     saveBehaviour: true
     useSavedBehaviour: false
-    readGrid: "sc analysis1"
+    readGrid: "sc_analysis1"
     flagDefaultToTimeSeriesAverages: true
     saveImperfectTaxDBMatches: false
     employmentOptionsOfPrincipalWorker: 3

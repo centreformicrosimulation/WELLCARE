@@ -20,7 +20,7 @@ model_args:
     useWeights: false
     ignoreTargetsAtPopulationLoad: false
     projectMortality: true
-    alignPopulation: false
+    alignPopulation: true
     alignFertility: false
     alignEducation: false
     alignInSchool: false
@@ -37,7 +37,7 @@ model_args:
     enableIntertemporalOptimisations: true
     saveBehaviour: true
     useSavedBehaviour: false
-    readGrid: "sc analysis1"
+    readGrid: "sc_analysis1d"
     ageDiscountRate: 1.25
     flagDefaultToTimeSeriesAverages: true
     saveImperfectTaxDBMatches: false

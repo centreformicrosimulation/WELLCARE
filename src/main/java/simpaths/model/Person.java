@@ -728,9 +728,10 @@ public class Person implements EventListener, IDoubleSource, IIntSource, Weight,
     private double ageWithDiscount() {
         double ageHere;
 
+        final int EARLIEST_AGE_DISCOUNT = 65;
         int yearsSinceStart = getYear() - Parameters.startYear;
         int ageAtStart = dag - yearsSinceStart;
-        int ageDiscountStart = Math.max(65, ageAtStart);
+        int ageDiscountStart = Math.max(EARLIEST_AGE_DISCOUNT, ageAtStart);
         if (dag < ageDiscountStart) {
 
             ageHere = (double)dag;
@@ -2382,43 +2383,43 @@ public class Person implements EventListener, IDoubleSource, IIntSource, Weight,
             }
             case Age67to68 -> {
                 double ageHere = ageWithDiscount();
-                return (ageHere >= 67 && ageHere <= 68) ? 1. : 0.;
+                return (ageHere > 66.5 && ageHere <= 68.5) ? 1. : 0.;
             }
             case Age69to70 -> {
                 double ageHere = ageWithDiscount();
-                return (ageHere >= 69 && ageHere <= 70) ? 1. : 0.;
+                return (ageHere > 68.5 && ageHere <= 70.5) ? 1. : 0.;
             }
             case Age71to72 -> {
                 double ageHere = ageWithDiscount();
-                return (ageHere >= 71 && ageHere <= 72) ? 1. : 0.;
+                return (ageHere > 70.5 && ageHere <= 72.5) ? 1. : 0.;
             }
             case Age73to74 -> {
                 double ageHere = ageWithDiscount();
-                return (ageHere >= 73 && ageHere <= 74) ? 1. : 0.;
+                return (ageHere > 72.5 && ageHere <= 74.5) ? 1. : 0.;
             }
             case Age75to76 -> {
                 double ageHere = ageWithDiscount();
-                return (ageHere >= 75 && ageHere <= 76) ? 1. : 0.;
+                return (ageHere > 74.5 && ageHere <= 76.5) ? 1. : 0.;
             }
             case Age77to78 -> {
                 double ageHere = ageWithDiscount();
-                return (ageHere >= 77 && ageHere <= 78) ? 1. : 0.;
+                return (ageHere > 76.5 && ageHere <= 78.5) ? 1. : 0.;
             }
             case Age79to80 -> {
                 double ageHere = ageWithDiscount();
-                return (ageHere >= 79 && ageHere <= 80) ? 1. : 0.;
+                return (ageHere > 78.5 && ageHere <= 80.5) ? 1. : 0.;
             }
             case Age81to82 -> {
                 double ageHere = ageWithDiscount();
-                return (ageHere >= 81 && ageHere <= 82) ? 1. : 0.;
+                return (ageHere > 80.5 && ageHere <= 82.5) ? 1. : 0.;
             }
             case Age83to84 -> {
                 double ageHere = ageWithDiscount();
-                return (ageHere >= 83 && ageHere <= 84) ? 1. : 0.;
+                return (ageHere > 82.5 && ageHere <= 84.5) ? 1. : 0.;
             }
             case Age85dplus -> {
                 double ageHere = ageWithDiscount();
-                return (ageHere >= 85) ? 1. : 0.;
+                return (ageHere > 84.5) ? 1. : 0.;
             }
             case Age85plus -> {
                 return (dag >= 85) ? 1. : 0.;

@@ -1,5 +1,5 @@
 # CONFIG FILE TO RUN BASE SIMULATION FOR SOCIAL CARE ANALYSIS
-# MODEL INCLUDES RATIONAL RESPONSES TO CARE AND POPULATION ALIGNMENT
+# MODEL INCLUDES RATIONAL RESPONSES TO CARE WITHOUT POPULATION ALIGNMENT
 countryString: "United Kingdom"
 maxNumberOfRuns: 1
 executeWithGui: false
@@ -37,7 +37,7 @@ model_args:
     enableIntertemporalOptimisations: true
     saveBehaviour: true
     useSavedBehaviour: true
-    readGrid: "sc analysis1"
+    readGrid: "sc_analysis1"
     flagDefaultToTimeSeriesAverages: true
     saveImperfectTaxDBMatches: false
     employmentOptionsOfPrincipalWorker: 3

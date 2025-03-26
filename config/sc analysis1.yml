@@ -37,7 +37,7 @@ model_args:
     enableIntertemporalOptimisations: true
     saveBehaviour: true
     useSavedBehaviour: false
-    readGrid: "sc analysis1"
+    readGrid: "care_gap"
     flagDefaultToTimeSeriesAverages: true
     saveImperfectTaxDBMatches: false
     employmentOptionsOfPrincipalWorker: 3

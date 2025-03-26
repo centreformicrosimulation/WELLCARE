@@ -38,9 +38,16 @@ public class TaxEvaluation {
         // all prices defined for base price year by default
         int priceYear = Parameters.BASE_PRICE_YEAR;
 
+        int carerHere;
+        if (age < 65) {
+            carerHere = careProvision;
+        } else {
+            carerHere = 0;
+        }
+
         // evaluate transfer payments
         evaluateImputedTaxes(simYear, priceYear, age, numberMembersOver17, numberChildrenUnder5, numberChildren5To9, numberChildren10To17,
-                hoursWorkedPerWeekMan, hoursWorkedPerWeekWoman, disabilityMan, disabilityWoman, careProvision, originalIncomePerMonth,
+                hoursWorkedPerWeekMan, hoursWorkedPerWeekWoman, disabilityMan, disabilityWoman, carerHere, originalIncomePerMonth,
                 secondIncomePerMonth, childcareCostPerMonth);
 
     }
